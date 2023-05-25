@@ -1,0 +1,82 @@
+<!-- python3 -m http.server -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+        var sessionId = '66cc29d2-3f43-47b9-a910-9de3da1470ec';
+        var applicationId = "AppName"
+        fetch('reports/'+applicationId+'/chartdata/' + sessionId + '_cpuSlowDownMultiplierImpact.json')
+            .then(response => response.json())
+            .then(data => {
+                const chartData = {
+                    labels: data.networkSpeedList,
+                    datasets: [
+                        {
+                            label: "Interactive Result (1x CPU slowdown)",
+                            data: data.cpuSlowDownMultiplierResultsList.interactiveResult[1],
+                            borderColor: "red",
+                            fill: false
+                        },
+                        {
+                            label: "Interactive Result (4x CPU slowdown)",
+                            data: data.cpuSlowDownMultiplierResultsList.interactiveResult[4],
+                            borderColor: "blue",
+                            fill: false
+                        },
+                        {
+                            label: "Speed Index (1x CPU slowdown)",
+                            data: data.cpuSlowDownMultiplierResultsList.speedIndex[1],
+                            borderColor: "green",
+                            fill: false
+                        },
+                        {
+                            label: "Speed Index (4x CPU slowdown)",
+                            data: data.cpuSlowDownMultiplierResultsList.speedIndex[4],
+                            borderColor: "orange",
+                            fill: false
+                        }
+                    ]
+                };
+
+                const chartOptions = {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Performance Results - " + sessionId
+                        }
+                    },
+                    scales: {
+                       
+                        x: {
+                            title: {
+                                display: true,
+                                text: "Time (ms)"
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: "Network Speed (kbps)"
+                            }
+                        }
+                    }
+                };
+
+                const ctx = document.getElementById("myChart").getContext("2d");
+                const myChart = new Chart(ctx, {
+                    type: "line",
+                    data: chartData,
+                    options: chartOptions
+                });
+            });
+    </script>
+</body>
+</html>
