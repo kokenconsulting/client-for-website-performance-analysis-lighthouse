@@ -21,7 +21,7 @@ $(document).ready(function () {
 function populateSessionDropDownListData(applicationId) {
     // AJAX request to get dropdown data
     $.ajax({
-        url: 'reports/' + applicationId + '/' + applicationId + '-sessionList.json',
+        url: 'reports/' + applicationId + '/' + applicationId + '-sessionlist.json',
         type: 'GET',
         success: function (data) {
             // Populate dropdown with data
