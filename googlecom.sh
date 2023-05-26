@@ -1,1 +1,0 @@
-node --experimental-modules ./applications/google.com/index.mjs
