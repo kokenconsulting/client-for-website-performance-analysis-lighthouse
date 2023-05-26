@@ -1,4 +1,13 @@
-import { runAnalysisWithBuiltInThrottling, runAnalysisWithExternalThrottling,AppInfo, logInfo,cpuSlowDownMultiplierImpactAnalysis,generateDataForSession, } from '/opt/homebrew/lib/node_modules/website-performance-analysis-lighthouse-draft/index.js';
+//import { runAnalysisWithBuiltInThrottling, runAnalysisWithExternalThrottling,AppInfo, logInfo,prepareThrottlingChartDataForSession,compileDataForSession, } from '/opt/homebrew/lib/node_modules/website-performance-analysis-lighthouse-draft/index.js';
+import {
+    runAnalysisWithBuiltInThrottling,
+    runAnalysisWithExternalThrottling,
+    AppInfo,
+    logInfo,
+    prepareThrottlingChartDataForSession,
+    compileDataForSession,
+    prepareSessionListForApp
+} from '/Users/4838599/github/website-performance-analysis-lighthouse-draft/src/index.js';
 import * as path from 'path';
 import * as fs from 'fs';
 import pkg from '/opt/homebrew/lib/node_modules/uuid/dist/index.js';
@@ -18,8 +27,8 @@ const appInfo = GetAppInfoInstance();
 //get current directory of the mjs file
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-const localReportsFolderPath = __dirname+'/reports'
-if (!fs.existsSync(localReportsFolderPath)){
+const localReportsFolderPath = __dirname + '/reports'
+if (!fs.existsSync(localReportsFolderPath)) {
     fs.mkdirSync(localReportsFolderPath);
     logInfo(`Reports folder created at ${localReportsFolderPath}`);
 }
@@ -30,7 +39,9 @@ logInfo(`session id is ${sessionId}`);
 var reportsFolderAbsolutePath = path.resolve(localReportsFolderPath);
 logInfo(`Saving reports to ${reportsFolderAbsolutePath}`)
 
-await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath,sessionId);
-await generateDataForSession(appInfo, reportsFolderAbsolutePath, sessionId);
-cpuSlowDownMultiplierImpactAnalysis(appInfo,sessionId,reportsFolderAbsolutePath);
+await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath, sessionId);
+await compileDataForSession(appInfo, reportsFolderAbsolutePath, sessionId);
+//wait until compile data for session is done
+prepareThrottlingChartDataForSession(appInfo, sessionId, reportsFolderAbsolutePath);
+prepareSessionListForApp(appInfo, reportsFolderAbsolutePath);
 

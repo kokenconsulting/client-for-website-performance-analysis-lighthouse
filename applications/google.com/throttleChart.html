@@ -1,82 +1,131 @@
-<!-- python3 -m http.server -->
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Chart.js Example</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
+    <label for="dropdown">Select Session:</label>
+    <select id="dropdown"></select>
     <canvas id="myChart"></canvas>
     <script>
-        var sessionId = '66cc29d2-3f43-47b9-a910-9de3da1470ec';
+        //var sessionId = '66cc29d2-3f43-47b9-a910-9de3da1470ec';
+        var chartObject;
         var applicationId = "AppName"
-        fetch('reports/'+applicationId+'/chartdata/' + sessionId + '_cpuSlowDownMultiplierImpact.json')
-            .then(response => response.json())
-            .then(data => {
-                const chartData = {
-                    labels: data.networkSpeedList,
-                    datasets: [
-                        {
-                            label: "Interactive Result (1x CPU slowdown)",
-                            data: data.cpuSlowDownMultiplierResultsList.interactiveResult[1],
-                            borderColor: "red",
-                            fill: false
-                        },
-                        {
-                            label: "Interactive Result (4x CPU slowdown)",
-                            data: data.cpuSlowDownMultiplierResultsList.interactiveResult[4],
-                            borderColor: "blue",
-                            fill: false
-                        },
-                        {
-                            label: "Speed Index (1x CPU slowdown)",
-                            data: data.cpuSlowDownMultiplierResultsList.speedIndex[1],
-                            borderColor: "green",
-                            fill: false
-                        },
-                        {
-                            label: "Speed Index (4x CPU slowdown)",
-                            data: data.cpuSlowDownMultiplierResultsList.speedIndex[4],
-                            borderColor: "orange",
-                            fill: false
-                        }
-                    ]
-                };
-
-                const chartOptions = {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: "Performance Results - " + sessionId
-                        }
-                    },
-                    scales: {
-                       
-                        x: {
-                            title: {
-                                display: true,
-                                text: "Time (ms)"
-                            }
-                        },
-                        y: {
-                            title: {
-                                display: true,
-                                text: "Network Speed (kbps)"
-                            }
-                        }
-                    }
-                };
-
-                const ctx = document.getElementById("myChart").getContext("2d");
-                const myChart = new Chart(ctx, {
-                    type: "line",
-                    data: chartData,
-                    options: chartOptions
-                });
+        
+        $(document).ready(function () {
+            populateSessionDropDownListData(applicationId);
+            $('#dropdown').change(function () {
+                var sessionId = $(this).val();
+                setSessionChart(applicationId, sessionId);
             });
+        });
+
+
+        function populateSessionDropDownListData(applicationId) {
+            // AJAX request to get dropdown data
+            $.ajax({
+                url: 'reports/' + applicationId + '/'+applicationId+'-sessionList.json',
+                type: 'GET',
+                success: function (data) {
+                    // Populate dropdown with data
+                    var dropdown = $('#dropdown');
+                    //reset dropdown list 
+                    dropdown.empty();
+                    dropdown.append('<option selected="true" disabled>Choose Session</option>');
+                    $.each(data.sessions, function (key, value) {
+                        console.log(key + " " + JSON.stringify(value))
+                        const ddOptionValue = value.sessionId;
+                        const ddOptionKey = `${applicationId}-${value.sessionId}-${value.endDateTime}`
+                        dropdown.append($('<option></option>').attr('value', ddOptionValue).text(ddOptionKey));
+                    });
+                }
+            });
+        }
+        // Upon selection of drowdownlist value, call setSessionChart value
+        
+
+        function setSessionChart(applicationId, sessionId) {
+            var colorList = ["red", "blue", "green", "orange", "purple", "yellow", "pink", "brown", "grey", "black"];
+            fetch('reports/' + applicationId + '/chartdata/' + sessionId + '_cpuSlowDownMultiplierImpact.json')
+                .then(response => response.json())
+                .then(data => {
+                    var dataSetValues = [];
+                    //given data: data.cpuSlowDownMultiplierResultsList.interactiveResult, loop
+                    //through each key and create a dataset object
+                    var currentColorIndex = 0;
+                    for (const [key, value] of Object.entries(data.cpuSlowDownMultiplierResultsList.interactiveResult)) {
+                        var dataSet = {
+                            label: "Interactive Result (" + key + "x CPU slowdown)",
+                            data: value,
+                            borderColor: colorList[currentColorIndex],
+                            fill: false
+                        }
+                        dataSetValues.push(dataSet);
+                        currentColorIndex++;
+                    }
+                    //given data: data.cpuSlowDownMultiplierResultsList.speedIndex, loop
+                    //through each key and create a dataset object
+                    //keep same color counters
+                    for (const [key, value] of Object.entries(data.cpuSlowDownMultiplierResultsList.speedIndex)) {
+                        var dataSet = {
+                            label: "Speed Index (" + key + "x CPU slowdown)",
+                            data: value,
+                            borderColor: colorList[currentColorIndex],
+                            fill: false
+                        }
+                        dataSetValues.push(dataSet);
+                        currentColorIndex++;
+                    }
+
+                    
+
+                    const chartData = {
+                        labels: data.networkSpeedList,
+                        datasets: dataSetValues,
+                    };
+
+                    const chartOptions = {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: "Performance Results - " + sessionId
+                            }
+                        },
+                        scales: {
+
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: "Time (ms)"
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: "Network Speed (kbps)"
+                                }
+                            }
+                        }
+                    };
+
+                    const ctx = document.getElementById("myChart").getContext("2d");
+                    //destroy chart if it already exists
+                    if (typeof chartObject !== "undefined") {
+                        chartObject.destroy();
+                    }
+                    chartObject = new Chart(ctx, {
+                        type: "line",
+                        data: chartData,
+                        options: chartOptions
+                    });
+                });
+        }
     </script>
 </body>
+
 </html>
