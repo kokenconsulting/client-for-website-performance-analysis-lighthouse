@@ -10,7 +10,7 @@ import {
 } from 'website-performance-analysis-lighthouse-draft';
 import * as path from 'path';
 import * as fs from 'fs';
-import pkg from '/opt/homebrew/lib/node_modules/uuid/dist/index.js';
+import pkg from 'uuid';
 const { v4: uuidv4 } = pkg;
 
 function GetAppInfoInstance() {
