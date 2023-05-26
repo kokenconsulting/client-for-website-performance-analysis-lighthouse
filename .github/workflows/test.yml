@@ -12,10 +12,12 @@ jobs:
       with:
         node-version: 18
     - name: Install dependencies
+      run: | 
+        git fetch --all
+        git checkout main
+    - name: Install dependencies
       run: npm install
     - name: Build and test
-      run: npm run start
-    - name: git push
       run: npm run start
     - name: GIT commit and push all changed files
       env: 

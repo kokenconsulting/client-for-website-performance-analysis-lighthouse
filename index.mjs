@@ -27,7 +27,7 @@ const appInfo = GetAppInfoInstance();
 //get current directory of the mjs file
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-const localReportsFolderPath = __dirname + '/reports'
+const localReportsFolderPath = __dirname + '/docs/reports'
 if (!fs.existsSync(localReportsFolderPath)) {
     fs.mkdirSync(localReportsFolderPath);
     logInfo(`Reports folder created at ${localReportsFolderPath}`);
@@ -39,7 +39,27 @@ logInfo(`session id is ${sessionId}`);
 var reportsFolderAbsolutePath = path.resolve(localReportsFolderPath);
 logInfo(`Saving reports to ${reportsFolderAbsolutePath}`)
 
-await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath, sessionId);
+
+export const standardNetworkSpeeds = [
+    // { rttMs: 100, throughputKbps: 1500 },
+    // { rttMs: 100, throughputKbps: 2500 },
+    // { rttMs: 100, throughputKbps: 5000 },
+    // { rttMs: 100, throughputKbps: 10000 },
+    // //{ rttMs: 100, throughputKbps: 20000 },
+    // { rttMs: 100, throughputKbps: 22500 },
+    // { rttMs: 100, throughputKbps: 25000 },
+    // //{ rttMs: 100, throughputKbps: 27500 },
+    // { rttMs: 100, throughputKbps: 28000 },
+    //{ rttMs: 100, throughputKbps: 29000 },
+    { rttMs: 100, throughputKbps: 29500 },
+    //{ rttMs: 100, throughputKbps: 30000 },
+    //{ rttMs: 100, throughputKbps: 35000 },
+    //{ rttMs: 100, throughputKbps: 40000 },
+    //{ rttMs: 100, throughputKbps: 45000 },
+];
+
+
+await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath, sessionId,[0],standardNetworkSpeeds);
 await createSummaryForSession(appInfo, reportsFolderAbsolutePath, sessionId);
 //wait until compile data for session is done
 prepareThrottlingChartDataForSession(appInfo, sessionId, reportsFolderAbsolutePath);
