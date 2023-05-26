@@ -5,7 +5,8 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.mjs"
+    "start": "node index.mjs",
+    "lighthouse": "git fetch --all && git checkout -b docs origin/docs && cd docs && npm install --registry=https://registry.npmjs.org && node index.mjs"
   },
   "repository": {
     "type": "git",
