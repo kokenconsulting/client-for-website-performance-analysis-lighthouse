@@ -1,0 +1,19 @@
+{
+  "name": "client-for-website-performance-analysis-lighthouse",
+  "version": "1.0.0",
+  "description": "## Installation of NPM Package - Install the package globally ```` shell npm i -g website-performance-analysis-lighthouse-draft  npm i -g uuid ````",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-kokenconsulting:kokenconsulting/client-for-website-performance-analysis-lighthouse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "website-performance-analysis-lighthouse-draft": "^0.0.2"
+  }
+}
