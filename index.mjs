@@ -11,7 +11,7 @@ import {
 import * as path from 'path';
 import * as fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
-import * as exec from 'child_process';
+
 const { TEST_LOGIN_NAME, TEST_LOGIN_PW, GITHUB_PAGES, DEBUG = false } = process.env;
 function GetAppInfoInstance() {
     const githubRepoUrl = 'https://github.com/repo';
@@ -38,8 +38,25 @@ logInfo(`session id is ${sessionId}`);
 
 var reportsFolderAbsolutePath = path.resolve(localReportsFolderPath);
 logInfo(`Saving reports to ${reportsFolderAbsolutePath}`)
+export const standardNetworkSpeeds = [
+    { rttMs: 100, throughputKbps: 1500 },
+    { rttMs: 100, throughputKbps: 2500 },
+    { rttMs: 100, throughputKbps: 5000 },
+    { rttMs: 100, throughputKbps: 10000 },
+    //{ rttMs: 100, throughputKbps: 20000 },
+    { rttMs: 100, throughputKbps: 22500 },
+    { rttMs: 100, throughputKbps: 25000 },
+    //{ rttMs: 100, throughputKbps: 27500 },
+    { rttMs: 100, throughputKbps: 28000 },
+    //{ rttMs: 100, throughputKbps: 29000 },
+    { rttMs: 100, throughputKbps: 29500 },
+    //{ rttMs: 100, throughputKbps: 30000 },
+    //{ rttMs: 100, throughputKbps: 35000 },
+    //{ rttMs: 100, throughputKbps: 40000 },
+    //{ rttMs: 100, throughputKbps: 45000 },
+];
 
-await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath);
+await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath,sessionId,[2,0],standardNetworkSpeeds);
 await createSummaryForSession(appInfo, reportsFolderAbsolutePath, sessionId);
 //wait until compile data for session is done
 prepareThrottlingChartDataForSession(appInfo, sessionId, reportsFolderAbsolutePath);
