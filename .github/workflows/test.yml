@@ -1,15 +1,11 @@
-//generate a github workflow that runs npm run start on push to main
 name: Node.js CI
-
 on:
   push:
     branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js
