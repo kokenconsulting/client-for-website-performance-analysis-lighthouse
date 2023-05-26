@@ -10,7 +10,7 @@ import {
 } from 'website-performance-analysis-lighthouse-draft';
 import * as path from 'path';
 import * as fs from 'fs';
-import * as uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 function GetAppInfoInstance() {
     const githubRepoUrl = 'https://github.com/repo';
