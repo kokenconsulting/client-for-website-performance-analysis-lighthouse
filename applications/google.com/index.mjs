@@ -5,7 +5,7 @@ import {
     AppInfo,
     logInfo,
     prepareThrottlingChartDataForSession,
-    compileDataForSession,
+    createSummaryForSession,
     prepareSessionListForApp
 } from '/Users/4838599/github/website-performance-analysis-lighthouse-draft/src/index.js';
 import * as path from 'path';
@@ -40,7 +40,7 @@ var reportsFolderAbsolutePath = path.resolve(localReportsFolderPath);
 logInfo(`Saving reports to ${reportsFolderAbsolutePath}`)
 
 await runAnalysisWithExternalThrottling(appInfo, url, reportsFolderAbsolutePath, sessionId);
-await compileDataForSession(appInfo, reportsFolderAbsolutePath, sessionId);
+await createSummaryForSession(appInfo, reportsFolderAbsolutePath, sessionId);
 //wait until compile data for session is done
 prepareThrottlingChartDataForSession(appInfo, sessionId, reportsFolderAbsolutePath);
 prepareSessionListForApp(appInfo, reportsFolderAbsolutePath);
