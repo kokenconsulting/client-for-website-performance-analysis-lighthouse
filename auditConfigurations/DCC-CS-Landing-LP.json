@@ -1,0 +1,54 @@
+{
+    "ReportFolderRelativePath": "./docs/reports",
+    "WebPage": {
+        "Id": "DCC_CS_LANDING",
+        "Name": "DCC CS Landing Page",
+        "Url": "https://www.fedex.com/en-gb/customer-support.html",
+        "Description" : "DCC CS APP LANDING PAGE",
+        "Environment": "LP"
+    },
+    "Application": {
+        "Id": "DCC_CS",
+        "Name": "DCC CS",
+        "Version": "2.5.4",
+        "Description": "DCC Customer Service",
+        "GitUrl": "",
+        "GitBranch": "master"
+    },
+    "ThrottlingSettings": {
+        "NetworkSpeeds": [
+            
+            {
+                "rttMs": 100,
+                "throughputKbps": 5500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 9000
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 12500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 15500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 19500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 25500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 29500
+            }
+        ],
+        "CPUSlowDownMultipliers": [
+            0,1
+        ]
+    }
+}

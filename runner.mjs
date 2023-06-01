@@ -29,9 +29,23 @@ async function MagicRatingLandingLP() {
   const auditRunner = new PerformanceMonitorOrchestrator(configFullPath);
   await auditRunner.run(true);
 }
+async function DCC_CS_LandingLP() {
+  //get current working directory
+  const configFullPath = path.join(process.cwd(), 'auditConfigurations/DCC-CS-Landing-LP.json');
+  const auditRunner = new PerformanceMonitorOrchestrator(configFullPath);
+  await auditRunner.run(true);
+}
+async function DCC_CS_ProfileLP() {
+  //get current working directory
+  const configFullPath = path.join(process.cwd(), 'auditConfigurations/DCC-CS-Profile-LP.json');
+  const auditRunner = new PerformanceMonitorOrchestrator(configFullPath);
+  await auditRunner.run(true);
+}
 
 //await TestConfig();
 
 //await GoogleSupportLP();
-//await MagicRatingLandingL6();
+await DCC_CS_LandingLP();
+await DCC_CS_ProfileLP();
+await MagicRatingLandingL6();
 await MagicRatingLandingLP();

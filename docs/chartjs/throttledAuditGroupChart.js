@@ -96,18 +96,20 @@ function processResultTypeSpeedIndex(data, currentColorIndex, dataSetValues) {
 
 function generateChartOnPage(currentColorIndex, data, dataSetValues, throttledAuditGroupId) {
     //currentColorIndex = processResultTypeSpeedIndex(data, currentColorIndex, dataSetValues);
-
+    var applicationName = data.webApplication.name;
+    var webPageName = data.webPage.displayName;
+    var environment = data.webPage.environment;
+    var url = data.webPage.url;
     const chartData = {
         labels: data.networkSpeedList,
         datasets: dataSetValues,
     };
-
     const chartOptions = {
         responsive: true,
         plugins: {
             title: {
                 display: true,
-                text: "Performance Results - " + throttledAuditGroupId
+                text: ['Throttled Audit Group Results',`${applicationName}-${webPageName}-${environment}`,throttledAuditGroupId,url]
             }
         },
         scales: {
