@@ -1,0 +1,26 @@
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: row;
+}

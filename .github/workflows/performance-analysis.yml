@@ -1,7 +1,7 @@
-name: Node.js CI
+name: Performance Monitoring
 on:
   push:
-    branches: [ main ]
+    branches: [ docs ]
 
 jobs:
   build:
@@ -16,11 +16,13 @@ jobs:
     - name: Install dependencies
       run: | 
         git fetch --all
-        git checkout main
+        git checkout docs
+        pwd
+        ls -la
     - name: Install dependencies
       run: npm install
     - name: Build and test
-      run: npm run start
+      run: node ./runner.mjs
     - name: GIT commit and push all changed files
       env: 
         CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts

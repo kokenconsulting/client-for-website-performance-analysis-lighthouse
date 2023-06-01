@@ -1,0 +1,33 @@
+{
+    "ReportFolderRelativePath": "./docs/reports",
+    "WebPage": {
+        "Id": "Test-Configuration",
+        "Name": "Test-Configuration",
+        "Url": "https://www.google.com/",
+        "Description": "Sample Description",
+        "Environment": "LP"
+    },
+    "Application": {
+        "Id": "test-website",
+        "Name": "test-website",
+        "Version": "1.0.0",
+        "Description": "Sample Application",
+        "GitUrl": "",
+        "GitBranch": "master"
+    },
+    "ThrottlingSettings": {
+        "NetworkSpeeds": [
+            {
+                "rttMs": 100,
+                "throughputKbps": 29500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 35500
+            }
+        ],
+        "CPUSlowDownMultipliers": [
+            0
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "ReportFolderRelativePath": "./docs/reports",
+    "WebPage": {
+        "Id": "MAGR_LANDING_PAGE",
+        "Name": "MAGR LANDING PAGE",
+        "Url": "https://www.fedex.com/magr/app/index.html",
+        "Description" : "MAGR APP LANDING PAGE",
+        "Environment": "LP"
+    },
+    "Application": {
+        "Id": "MAGR",
+        "Name": "Magic-Rating",
+        "Version": "2.5.4",
+        "Description": "Magic Rating Application",
+        "GitUrl": "",
+        "GitBranch": "master"
+    },
+    "ThrottlingSettings": {
+        "NetworkSpeeds": [
+            
+            {
+                "rttMs": 100,
+                "throughputKbps": 5500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 9000
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 12500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 15500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 19500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 25500
+            },
+            {
+                "rttMs": 100,
+                "throughputKbps": 29500
+            }
+        ],
+        "CPUSlowDownMultipliers": [
+            0,1,2
+        ]
+    }
+}

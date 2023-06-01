@@ -5,54 +5,56 @@
     <title>Chart.js Example</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="throttleChart.js"></script>
-    <style>
-        p {
-            font-size: 18px;
-            line-height: 1.5;
-            color: #333;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        #dropdown {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 200px;
-            margin-bottom: 20px;
-        }
-
-        .checkbox-list {
-            display: flex;
-            flex-direction: row;
-        }
-    </style>
+    <script src="chartjs/core.js"></script>
+    <script src="chartjs/throttleSingleAuditChart.js"></script>
+    <script src="chartjs/throttledAuditDashboard.js"></script>
+    <script src="chartjs/appChart.js"></script>
+    <script src="chartjs/cockpit.js"></script>
+    <link rel="stylesheet" type="text/css" href="chartjs/style.css">
     <script>
-       
+
     </script>
 </head>
 
 <body>
-    <h1>Throttle Chart</h1>
-    <p>This page displays a chart of performance results for different network speeds and CPU slowdowns. Select a
-        session from the dropdown list to view its performance results.</p>
-    <label for="dropdown">Select Session:</label>
-    <select id="dropdown"></select>
 
-    <h2>Graph Options</h2>
-    <h3>CPU Slow Down Multipliers</h3>
-    <div id="cpuSlowDownMultipliersCheckboxList" class="checkbox-list"></div>
+    <div id="cockpit" style="height: 50%;width:50%">
+        <h1>Application Chart</h1>
+        <div>
+            <label for="webAppListDDL">Select Web App:</label>
+            <select id="webAppListDDL"></select>
+        </div>
+        <div>
+            <label for="webPageListDDL">Select Web Page:</label>
+            <select id="webPageListDDL"></select>
+        </div>
+        <div>
+            <label for="envListDDL">Select Environment:</label>
+            <select id="envListDDL"></select>
+        </div>
+        <div>
+            <label for="cpuOptionsDDL">Select CPU Slow Down Multiplier:</label>
+            <select id="cpuOptionsDDL"></select>
+            <label for="networkThrottleOptionsDDL">Select Network Speed in Kbps:</label>
+            <select id="networkThrottleOptionsDDL"></select>
+        </div>
+    </div>
+    <div>
+        <canvas id="environmentAuditResultsChart" style="width: 75%;"></canvas>
+    </div>
+    <div style="height: 50%;width:50%">
 
-    <h3>Type of Values</h3>
-    <div id="typeOfValuesCheckboxList" class="checkbox-list"></div>
-    <canvas id="myChart"></canvas>
-</body>
+        <h2>Graph Options</h2>
+        <h3>CPU Slow Down Multipliers</h3>
+        <div id="cpuSlowDownMultipliersCheckboxList" class="checkbox-list"></div>
 
-</html>
+        <h3>Type of Values</h3>
+        <div id="typeOfValuesCheckboxList" class="checkbox-list"></div>
+        <canvas id="webPageAuditChart" style="width: 75%;"></canvas>
+
+    </div>
+    <style>
+        select {
+            display: inline-block;
+        }
+    </style>
