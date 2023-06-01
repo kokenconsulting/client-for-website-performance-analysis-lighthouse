@@ -1,8 +1,13 @@
 name: Performance Monitoring
 on:
   push:
-    branches: [ docs ]
-
+    branches:
+      - docs
+    paths:
+      - '**'
+    # Only trigger if commit message does not contain "github actions run"
+    # Prevent infinite loop
+    if: '!(contains(github.event.head_commit.message, "github actions run"))'
 jobs:
   build:
     runs-on: ubuntu-latest
