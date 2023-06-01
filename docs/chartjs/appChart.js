@@ -30,7 +30,7 @@ function populateApplicationKeyListDropdownlist(applicationId) {
         },
         error: function (data) {
             console.log("error: " + data)
-            alert("Error getting session list data");
+            alert("Error getting list data");
         }
     });
 }
@@ -41,7 +41,7 @@ function setApplicationChartData(applicationId, optionId) {
         .then(response => response.json())
         .then(data => processChartData(data, applicationId, optionId));
 }
-function processChartData(data, applicationId, auditInstanceId) {
+function processChartData(data, applicationId, throttledAuditGroupId) {
     //TODOs
     let currentColorIndex = 0;
     let labels = processApplicationLabels(data);
@@ -49,14 +49,14 @@ function processChartData(data, applicationId, auditInstanceId) {
     let dataSetValues = [];
     currentColorIndex =  processApplicationInteractive(currentColorIndex,dataSetValues,data);
     currentColorIndex = processApplicationSpeedIndex(currentColorIndex,dataSetValues,data);
-    generateApplicationChartOnPage(currentColorIndex, labels, dataSetValues, auditInstanceId)
+    generateApplicationChartOnPage(currentColorIndex, labels, dataSetValues, throttledAuditGroupId)
 }
 
 function processApplicationLabels(data) {
     let labels = [];
-    //loop over array in data.auditInstanceId
-    for (const key in data.auditInstanceId) {
-        const label = data.auditInstanceId[key].startDateTime;
+    //loop over array in data.throttledAuditGroupId
+    for (const key in data.throttledAuditGroupId) {
+        const label = data.throttledAuditGroupId[key].startDateTime;
         labels.push(label);
     }
     return labels;
@@ -85,7 +85,7 @@ function processApplicationSpeedIndex(currentColorIndex,dataSetValues,data){
     return currentColorIndex;
 }
 
-function generateApplicationChartOnPage(currentColorIndex, labels, dataSetValues, sessionId) {
+function generateApplicationChartOnPage(currentColorIndex, labels, dataSetValues, throttledAuditGroupId) {
     const chartData = {
         labels: labels,
         datasets: dataSetValues,
@@ -96,7 +96,7 @@ function generateApplicationChartOnPage(currentColorIndex, labels, dataSetValues
         plugins: {
             title: {
                 display: true,
-                text: "Performance Results - " + sessionId
+                text: "Performance Results - " + throttledAuditGroupId
             }
         },
         scales: {

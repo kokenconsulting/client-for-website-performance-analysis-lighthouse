@@ -1,12 +1,3 @@
-
-$(document).ready(function () {
-    // populateSessionDropDownListData(applicationId);
-    // $('#dropdown').change(function () {
-    //     var sessionId = $(this).val();
-    //     setAuditChartData(applicationId, sessionId);
-    // });
-});
-
 function populateSessionDropDownListData(applicationId) {
     let url = constants.baseUrl + '/' + constants.reportsFolderName + '/' + applicationId + '/' + applicationId + constants.auditlistSuffix;
     url= constants.reportsFolderName + '/' + applicationId + '/' + applicationId + constants.auditlistSuffix;
@@ -30,12 +21,12 @@ function populateSessionDropDownListData(applicationId) {
         },
         error: function (data) {
             console.log("error: " + data)
-            alert("Error getting session list data");
+            alert("Error getting list data");
         }
     });
 }
 
-function parseResultTypeCheckList(resultTypes, applicationId, sessionId) {
+function parseResultTypeCheckList(resultTypes, applicationId, throttledAuditGroupId) {
     if (document.getElementById("typeOfValuesCheckboxList").innerHTML == "") {
         // Create checkbox list for type of values (Interactive and Speed Index)
         //var resultTypes = ["Interactive", "Speed Index"];
@@ -60,12 +51,12 @@ function parseResultTypeCheckList(resultTypes, applicationId, sessionId) {
             } else {
                 savedResultTypes.push(value);
             }
-            setApplicationChartData(applicationId, sessionId);
+            setApplicationChartData(applicationId, throttledAuditGroupId);
         });
     }
 }
 
-function parseCPUSlowDownMultipliersCheckList(cpuSlowDownMultipliers, applicationId, sessionId) {
+function parseCPUSlowDownMultipliersCheckList(cpuSlowDownMultipliers, applicationId, throttledAuditGroupId) {
     if (document.getElementById("cpuSlowDownMultipliersCheckboxList").innerHTML == "") {
 
         // Create checkbox list for CPU Slow Down Multipliers
@@ -91,7 +82,7 @@ function parseCPUSlowDownMultipliersCheckList(cpuSlowDownMultipliers, applicatio
             } else {
                 savedCpuSlowDownMultipliers.push(value);
             }
-            setApplicationChartData(applicationId, sessionId);
+            setApplicationChartData(applicationId, throttledAuditGroupId);
         });
     }
 }

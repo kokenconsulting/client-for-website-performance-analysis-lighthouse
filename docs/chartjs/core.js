@@ -6,7 +6,7 @@ var constants = {
     AUDITS_NAME: "audits",
     CHART_DATA_FOLDER_NAME: "chartdata",
     ALL_KEYS: "allkeys.json",
-    AUDIT_INSTANCE_ID: "auditInstanceId"
+    AUDIT_INSTANCE_ID: "throttledAuditGroupId"
 };
 
 var baseUrl = "localhost:8000";

@@ -1,16 +1,16 @@
 // Upon selection of drowdownlist value, call setSessionChart value
-function setAuditChartData(webAppId, webPageId, env, auditInstanceId) {
-    const url = DATA_SOURCES.THROTTLED_AUDIT_SUMMARY_CHART_DATA(webAppId, webPageId, env,auditInstanceId)
+function setAuditChartData(webAppId, webPageId, env, throttledAuditGroupId) {
+    const url = DATA_SOURCES.THROTTLED_AUDIT_SUMMARY_CHART_DATA(webAppId, webPageId, env,throttledAuditGroupId)
     fetch(url)
         .then(response => response.json())
-        .then(data => processCPUSlowDownMultiplierResultsUponRequestSuccess(data, applicationId, auditInstanceId));
+        .then(data => processCPUSlowDownMultiplierResultsUponRequestSuccess(data, applicationId, throttledAuditGroupId));
 }
 
-function processCPUSlowDownMultiplierResultsUponRequestSuccess(data, applicationId, auditInstanceId) {
+function processCPUSlowDownMultiplierResultsUponRequestSuccess(data, applicationId, throttledAuditGroupId) {
 
     var cpuSlowDownMultipliers = [];
     var resultTypes = [];
-    generateOptionsForChart(cpuSlowDownMultipliers, resultTypes, applicationId, auditInstanceId);
+    generateOptionsForChart(cpuSlowDownMultipliers, resultTypes, applicationId, throttledAuditGroupId);
     generateDataForChartOptions(data, cpuSlowDownMultipliers, resultTypes);
 
     var dataSetValues = [];
@@ -22,7 +22,7 @@ function processCPUSlowDownMultiplierResultsUponRequestSuccess(data, application
     //given data: data.cpuSlowDownMultiplierResultsList.speedIndex, loop
     //through each key and create a dataset object
     //keep same color counters
-    generateChartOnPage(currentColorIndex, data, dataSetValues, auditInstanceId);
+    generateChartOnPage(currentColorIndex, data, dataSetValues, throttledAuditGroupId);
 }
 function generateDataForChartOptions(data, cpuSlowDownMultipliers, resultTypes) {
     for (const [key, value] of Object.entries(data.cpuSlowDownMultiplierResultsList.interactiveResult)) {
@@ -51,10 +51,10 @@ function generateDataForChartOptions(data, cpuSlowDownMultipliers, resultTypes) 
 
 }
 
-function generateOptionsForChart(cpuSlowDownMultipliers, resultTypes, applicationId, sessionId) {
+function generateOptionsForChart(cpuSlowDownMultipliers, resultTypes, applicationId, throttledAuditGroup) {
     //run this function only if cpuSlowDownMultipliersCheckboxList innerHtml is empty
-    parseCPUSlowDownMultipliersCheckList(cpuSlowDownMultipliers, applicationId, sessionId);
-    parseResultTypeCheckList(resultTypes, applicationId, sessionId);
+    parseCPUSlowDownMultipliersCheckList(cpuSlowDownMultipliers, applicationId, throttledAuditGroup);
+    parseResultTypeCheckList(resultTypes, applicationId, throttledAuditGroup);
 }
 
 
@@ -96,7 +96,7 @@ function processResultTypeSpeedIndex(data, currentColorIndex, dataSetValues) {
 }
 
 
-function generateChartOnPage(currentColorIndex, data, dataSetValues, sessionId) {
+function generateChartOnPage(currentColorIndex, data, dataSetValues, throttledAuditGroupId) {
     //currentColorIndex = processResultTypeSpeedIndex(data, currentColorIndex, dataSetValues);
 
     const chartData = {
@@ -109,7 +109,7 @@ function generateChartOnPage(currentColorIndex, data, dataSetValues, sessionId) 
         plugins: {
             title: {
                 display: true,
-                text: "Performance Results - " + sessionId
+                text: "Performance Results - " + throttledAuditGroupId
             }
         },
         scales: {
