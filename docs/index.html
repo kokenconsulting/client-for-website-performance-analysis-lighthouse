@@ -6,8 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="chartjs/core.js"></script>
-    <script src="chartjs/throttleSingleAuditChart.js"></script>
-    <script src="chartjs/throttledAuditDashboard.js"></script>
+    <script src="chartjs/throttledAuditGroupChart.js"></script>
     <script src="chartjs/appChart.js"></script>
     <script src="chartjs/cockpit.js"></script>
     <link rel="stylesheet" type="text/css" href="chartjs/style.css">
@@ -17,44 +16,34 @@
 </head>
 
 <body>
-
     <div id="cockpit" style="height: 50%;width:50%">
         <h1>Application Chart</h1>
-        <div>
-            <label for="webAppListDDL">Select Web App:</label>
-            <select id="webAppListDDL"></select>
+        <div class="cockpitDropdownlistContainer">
+            <label class="cockpitDropdownlistLabel" for="webAppListDDL">Select Web App:</label>
+            <select class="cockpitDropdownlist" id="webAppListDDL"></select>
         </div>
-        <div>
-            <label for="webPageListDDL">Select Web Page:</label>
-            <select id="webPageListDDL"></select>
+        <div class="cockpitDropdownlistContainer">
+            <label class="cockpitDropdownlistLabel" for="webPageListDDL">Select Web Page:</label>
+            <select class="cockpitDropdownlist" id="webPageListDDL"></select>
         </div>
-        <div>
-            <label for="envListDDL">Select Environment:</label>
-            <select id="envListDDL"></select>
+        <div class="cockpitDropdownlistContainer">
+            <label class="cockpitDropdownlistLabel" for="envListDDL">Select Environment:</label>
+            <select class="cockpitDropdownlist" id="envListDDL"></select>
         </div>
-        <div>
-            <label for="cpuOptionsDDL">Select CPU Slow Down Multiplier:</label>
-            <select id="cpuOptionsDDL"></select>
-            <label for="networkThrottleOptionsDDL">Select Network Speed in Kbps:</label>
-            <select id="networkThrottleOptionsDDL"></select>
+        <div class="cockpitDropdownlistContainer">
+            <label class="cockpitDropdownlistLabel" for="cpuOptionsDDL">Select CPU Slow Down Multiplier:</label>
+            <select class="cockpitDropdownlist" id="cpuOptionsDDL"></select>
+            <label class="cockpitDropdownlistLabel" for="networkThrottleOptionsDDL">Select Network Speed in
+                Kbps:</label>
+            <select class="cockpitDropdownlist" id="networkThrottleOptionsDDL"></select>
         </div>
     </div>
-    <div>
+    <div class="convasContainer">
         <canvas id="environmentAuditResultsChart" style="width: 75%;"></canvas>
     </div>
-    <div style="height: 50%;width:50%">
-
-        <h2>Graph Options</h2>
-        <h3>CPU Slow Down Multipliers</h3>
-        <div id="cpuSlowDownMultipliersCheckboxList" class="checkbox-list"></div>
-
-        <h3>Type of Values</h3>
-        <div id="typeOfValuesCheckboxList" class="checkbox-list"></div>
+    <div id="throttledAuditGroup" class="convasContainer">
         <canvas id="webPageAuditChart" style="width: 75%;"></canvas>
-
     </div>
-    <style>
-        select {
-            display: inline-block;
-        }
-    </style>
+</body>
+
+</html>
