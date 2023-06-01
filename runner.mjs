@@ -32,6 +32,6 @@ async function MagicRatingLandingLP() {
 
 //await TestConfig();
 
-await GoogleSupportLP();
-// await MagicRatingLandingL6();
-// await MagicRatingLandingLP();
+//await GoogleSupportLP();
+//await MagicRatingLandingL6();
+await MagicRatingLandingLP();
