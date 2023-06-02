@@ -19,8 +19,8 @@
         <p>
             Please Choose an application first.
             After that you can choose a web page and an environment.
-            Once web page and environments are selected, a chart will be loaded with the default cpi slow multiplier and
-            network throttles throughput.
+            Once web page and environments are selected, a chart will be loaded with the default <b>cpu slow multiplier</b> and
+             <b>throttled network throughput.</b>
         </p>
         <div class="TopMenu">
             <div class="cockpitDropdownlistContainer">
@@ -44,9 +44,11 @@
             <select class="cockpitDropdownlist" id="networkThrottleOptionsDDL"></select>
         </div>
     </div>
+    <h2>Click on points in the chart to see Throttled Audit Group Details Chart</h2>
     <div class="convasContainer">
         <canvas id="environmentAuditResultsChart" style="width: 75%;"></canvas>
     </div>
+    
     <div id="throttledAuditGroup" class="convasContainer">
         <canvas id="webPageAuditChart" style="width: 75%;"></canvas>
     </div>
