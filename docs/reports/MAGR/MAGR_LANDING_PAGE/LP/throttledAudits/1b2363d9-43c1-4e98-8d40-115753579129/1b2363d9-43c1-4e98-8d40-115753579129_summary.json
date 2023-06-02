@@ -1,1 +1,186 @@
-{"webPage":{"url":"https://www.fedex.com/magr/app/index.html","id":"MAGR_LANDING_PAGE","environment":"LP","displayName":"MAGR LANDING PAGE","description":"MAGR APP LANDING PAGE"},"webApplication":{"id":"MAGR","name":"Magic-Rating","version":"2.5.4","gitRepoUrl":"","gitBranchName":"master"},"auditResultList":[{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:12:14.762Z","endDateTime":"2023-06-02T03:12:44.071Z","networkThrottle":{"rttMs":100,"throughputKbps":12500},"cpuSlowDownMultiplier":0,"loadTimeInteractive":7278.857,"loadTimeSpeedIndex":5289},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:13:16.943Z","endDateTime":"2023-06-02T03:13:45.658Z","networkThrottle":{"rttMs":100,"throughputKbps":15500},"cpuSlowDownMultiplier":0,"loadTimeInteractive":5232.393,"loadTimeSpeedIndex":4531},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:14:16.029Z","endDateTime":"2023-06-02T03:14:51.898Z","networkThrottle":{"rttMs":100,"throughputKbps":19500},"cpuSlowDownMultiplier":0,"loadTimeInteractive":12696.186,"loadTimeSpeedIndex":4114},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:15:22.302Z","endDateTime":"2023-06-02T03:15:50.997Z","networkThrottle":{"rttMs":100,"throughputKbps":25500},"cpuSlowDownMultiplier":0,"loadTimeInteractive":6864.231,"loadTimeSpeedIndex":4460},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:16:31.087Z","endDateTime":"2023-06-02T03:16:59.845Z","networkThrottle":{"rttMs":100,"throughputKbps":29500},"cpuSlowDownMultiplier":0,"loadTimeInteractive":6191.026,"loadTimeSpeedIndex":4386},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:10:01.517Z","endDateTime":"2023-06-02T03:10:39.650Z","networkThrottle":{"rttMs":100,"throughputKbps":5500},"cpuSlowDownMultiplier":0,"loadTimeInteractive":13781.974,"loadTimeSpeedIndex":4305},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:11:12.570Z","endDateTime":"2023-06-02T03:11:41.771Z","networkThrottle":{"rttMs":100,"throughputKbps":9000},"cpuSlowDownMultiplier":0,"loadTimeInteractive":7211.315,"loadTimeSpeedIndex":5070},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:12:45.855Z","endDateTime":"2023-06-02T03:13:14.794Z","networkThrottle":{"rttMs":100,"throughputKbps":12500},"cpuSlowDownMultiplier":1,"loadTimeInteractive":7126.852,"loadTimeSpeedIndex":5252},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:13:47.426Z","endDateTime":"2023-06-02T03:14:13.843Z","networkThrottle":{"rttMs":100,"throughputKbps":15500},"cpuSlowDownMultiplier":1,"loadTimeInteractive":6322.025,"loadTimeSpeedIndex":4381},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:14:53.714Z","endDateTime":"2023-06-02T03:15:20.096Z","networkThrottle":{"rttMs":100,"throughputKbps":19500},"cpuSlowDownMultiplier":1,"loadTimeInteractive":6260.505,"loadTimeSpeedIndex":4412},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:15:52.773Z","endDateTime":"2023-06-02T03:16:28.859Z","networkThrottle":{"rttMs":100,"throughputKbps":25500},"cpuSlowDownMultiplier":1,"loadTimeInteractive":12526.177,"loadTimeSpeedIndex":4609},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:17:01.631Z","endDateTime":"2023-06-02T03:17:28.415Z","networkThrottle":{"rttMs":100,"throughputKbps":29500},"cpuSlowDownMultiplier":1,"loadTimeInteractive":6603.505,"loadTimeSpeedIndex":4501},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:10:41.481Z","endDateTime":"2023-06-02T03:11:10.426Z","networkThrottle":{"rttMs":100,"throughputKbps":5500},"cpuSlowDownMultiplier":1,"loadTimeInteractive":7986,"loadTimeSpeedIndex":5734},{"throttledAuditGroupId":"1b2363d9-43c1-4e98-8d40-115753579129","startDateTime":"2023-06-02T03:11:43.564Z","endDateTime":"2023-06-02T03:12:12.543Z","networkThrottle":{"rttMs":100,"throughputKbps":9000},"cpuSlowDownMultiplier":1,"loadTimeInteractive":6533.152,"loadTimeSpeedIndex":4602}]}
+{
+    "webPage": {
+        "url": "https://www.fedex.com/magr/app/index.html",
+        "id": "MAGR_LANDING_PAGE",
+        "environment": "LP",
+        "displayName": "MAGR LANDING PAGE",
+        "description": "MAGR APP LANDING PAGE"
+    },
+    "webApplication": {
+        "id": "MAGR",
+        "name": "Magic-Rating",
+        "version": "2.5.4",
+        "gitRepoUrl": "",
+        "gitBranchName": "master"
+    },
+    "auditResultList": [
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:12:14.762Z",
+            "endDateTime": "2023-06-02T03:12:44.071Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 12500
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 7278.857,
+            "loadTimeSpeedIndex": 5289
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:13:16.943Z",
+            "endDateTime": "2023-06-02T03:13:45.658Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 15500
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 5232.393,
+            "loadTimeSpeedIndex": 4531
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:14:16.029Z",
+            "endDateTime": "2023-06-02T03:14:51.898Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 19500
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 12696.186,
+            "loadTimeSpeedIndex": 4114
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:15:22.302Z",
+            "endDateTime": "2023-06-02T03:15:50.997Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 25500
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 6864.231,
+            "loadTimeSpeedIndex": 4460
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:16:31.087Z",
+            "endDateTime": "2023-06-02T03:16:59.845Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 29500
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 6191.026,
+            "loadTimeSpeedIndex": 4386
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:10:01.517Z",
+            "endDateTime": "2023-06-02T03:10:39.650Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 5500
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 13781.974,
+            "loadTimeSpeedIndex": 4305
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:11:12.570Z",
+            "endDateTime": "2023-06-02T03:11:41.771Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 9000
+            },
+            "cpuSlowDownMultiplier": 0,
+            "loadTimeInteractive": 7211.315,
+            "loadTimeSpeedIndex": 5070
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:12:45.855Z",
+            "endDateTime": "2023-06-02T03:13:14.794Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 12500
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 7126.852,
+            "loadTimeSpeedIndex": 5252
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:13:47.426Z",
+            "endDateTime": "2023-06-02T03:14:13.843Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 15500
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 6322.025,
+            "loadTimeSpeedIndex": 4381
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:14:53.714Z",
+            "endDateTime": "2023-06-02T03:15:20.096Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 19500
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 6260.505,
+            "loadTimeSpeedIndex": 4412
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:15:52.773Z",
+            "endDateTime": "2023-06-02T03:16:28.859Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 25500
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 12526.177,
+            "loadTimeSpeedIndex": 4609
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:17:01.631Z",
+            "endDateTime": "2023-06-02T03:17:28.415Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 29500
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 6603.505,
+            "loadTimeSpeedIndex": 4501
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:10:41.481Z",
+            "endDateTime": "2023-06-02T03:11:10.426Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 5500
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 7986,
+            "loadTimeSpeedIndex": 5734
+        },
+        {
+            "throttledAuditGroupId": "1b2363d9-43c1-4e98-8d40-115753579129",
+            "startDateTime": "2023-06-02T03:11:43.564Z",
+            "endDateTime": "2023-06-02T03:12:12.543Z",
+            "networkThrottle": {
+                "rttMs": 100,
+                "throughputKbps": 9000
+            },
+            "cpuSlowDownMultiplier": 1,
+            "loadTimeInteractive": 6533.152,
+            "loadTimeSpeedIndex": 4602
+        }
+    ]
+}
