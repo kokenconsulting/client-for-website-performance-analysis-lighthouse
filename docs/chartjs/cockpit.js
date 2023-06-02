@@ -99,8 +99,9 @@ function setWebApplicationList() {
         populateWebApplicationListDDLOptions($ddl, ajaxResponseData);
     });
     $ddl.change(function () {
-        var webAppId = $(this).val();
-        setWebPageList(webAppId);
+        const $envDLL = $(`#${COCKPIT_ELEMENTS.envListDDL.id}`);
+        cleanDDL($envDLL, false);
+        setWebPageList();
     });
 }
 function cleanDDL($ddl, addDefaultOption = true) {
@@ -111,6 +112,7 @@ function cleanDDL($ddl, addDefaultOption = true) {
 }
 function populateWebApplicationListDDLOptions($ddl, ajaxResponseData) {
     cleanDDL($ddl);
+
     $.each(ajaxResponseData[COCKPIT_ELEMENTS.webAppListDDL.ajaxResponseDataProperty], function (key, value) {
         //console.log(key + " " + JSON.stringify(value))
         const ddOptionValue = value;
@@ -119,7 +121,9 @@ function populateWebApplicationListDDLOptions($ddl, ajaxResponseData) {
     });
 };
 
-function setWebPageList(webAppId) {
+function setWebPageList() {
+    const $webAppDDL = $(`#${COCKPIT_ELEMENTS.webAppListDDL.id}`);
+    const webAppId = $webAppDDL.val();
     url = DATA_SOURCES.WEBPAGE_LIST_ENDPOINT(webAppId);
     const $ddl = $(`#${COCKPIT_ELEMENTS.webPageListDDL.id}`);
     // AJAX request to get dropdown data
@@ -127,8 +131,7 @@ function setWebPageList(webAppId) {
         populateWebPagesListDDLOptions($ddl, ajaxResponseData);
     });
     $ddl.change(function () {
-        var webPageId = $(this).val();
-        setEnvironmentList(webAppId, webPageId)
+        setEnvironmentList()
     });
 }
 
@@ -142,17 +145,18 @@ function populateWebPagesListDDLOptions($ddl, ajaxResponseData) {
     });
 };
 
-function setEnvironmentList(webAppId, webPageId) {
+function setEnvironmentList() {
+    const { webAppId, webPageId } = getCurrentDropDownListValues();
+    const $envDLL = $(`#${COCKPIT_ELEMENTS.envListDDL.id}`);
     url = DATA_SOURCES.ENVIRONMENT_LIST_ENDPOINT(webAppId, webPageId);
-    const $ddl = $(`#${COCKPIT_ELEMENTS.envListDDL.id}`);
+
     // AJAX request to get dropdown data
     ajaxCall(url, function (ajaxResponseData) {
-        populateEnvironmentListDDLOptions($ddl, ajaxResponseData);
+        populateEnvironmentListDDLOptions($envDLL, ajaxResponseData);
     });
 
-    $ddl.change(function () {
-        var env = $(this).val();
-        setEnvironmentThrottleOptions(webAppId, webPageId, env)
+    $envDLL.change(function () {
+        setEnvironmentThrottleOptions()
     });
 }
 
@@ -166,7 +170,8 @@ function populateEnvironmentListDDLOptions($ddl, ajaxResponseData) {
     });
 };
 
-function setEnvironmentThrottleOptions(webAppId, webPageId, env) {
+function setEnvironmentThrottleOptions() {
+    const { webAppId, webPageId, env } = getCurrentDropDownListValues();
     function generateChart() {
         var cpuOption = $cpuddl.val();
         var network = $networkddl.val();
@@ -189,6 +194,16 @@ function setEnvironmentThrottleOptions(webAppId, webPageId, env) {
     $networkddl.change(function () {
         generateChart()
     });
+}
+
+function getCurrentDropDownListValues() {
+    const $webAppDDL = $(`#${COCKPIT_ELEMENTS.webAppListDDL.id}`);
+    const webAppId = $webAppDDL.val();
+    const $webPageDLL = $(`#${COCKPIT_ELEMENTS.webPageListDDL.id}`);
+    const webPageId = $webPageDLL.val();
+    const $envDLL = $(`#${COCKPIT_ELEMENTS.envListDDL.id}`);
+    const env = $envDLL.val();
+    return { webAppId, webPageId, env };
 }
 
 function populateEnvironmentThrottleDDLOptions($cpuddl, $networkddl, ajaxResponseData) {
@@ -259,7 +274,7 @@ function generateApplicationChartOnPage(labels, dataSetValues, webAppId, webPage
                 const throttledAuditGroupId = label.split("Z-")[1];
                 console.log(value);
                 console.log(datasetIndex);
-                console.log("audit instance id"+throttledAuditGroupId);
+                console.log("audit instance id" + throttledAuditGroupId);
                 setAuditChartData(webAppId, webPageId, env, throttledAuditGroupId)
             }
         },
@@ -271,7 +286,7 @@ function generateApplicationChartOnPage(labels, dataSetValues, webAppId, webPage
         plugins: {
             title: {
                 display: true,
-                text: `Environment Audit Results for Web Application - ${webAppId} - Web Page ${webPageId} - Environment ${env} - CPU Slow Down Multiplier - ${cpuOption} - Network Throttling Setting -  ${network}`
+                text: [`Environment Audit Results for Web Application - ${webAppId}`, `Web Page ${webPageId} - Environment ${env}`, `CPU Slow Down Multiplier - ${cpuOption} - Network Throttling Setting - ${network}`]
             }
         },
         scales: {

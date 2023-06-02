@@ -5,9 +5,7 @@
     <title>Chart.js Example</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="chartjs/core.js"></script>
     <script src="chartjs/throttledAuditGroupChart.js"></script>
-    <script src="chartjs/appChart.js"></script>
     <script src="chartjs/cockpit.js"></script>
     <link rel="stylesheet" type="text/css" href="chartjs/style.css">
     <script>
@@ -18,17 +16,25 @@
 <body>
     <div id="cockpit" style="height: 50%;width:50%">
         <h1>Application Chart</h1>
-        <div class="cockpitDropdownlistContainer">
-            <label class="cockpitDropdownlistLabel" for="webAppListDDL">Select Web App:</label>
-            <select class="cockpitDropdownlist" id="webAppListDDL"></select>
-        </div>
-        <div class="cockpitDropdownlistContainer">
-            <label class="cockpitDropdownlistLabel" for="webPageListDDL">Select Web Page:</label>
-            <select class="cockpitDropdownlist" id="webPageListDDL"></select>
-        </div>
-        <div class="cockpitDropdownlistContainer">
-            <label class="cockpitDropdownlistLabel" for="envListDDL">Select Environment:</label>
-            <select class="cockpitDropdownlist" id="envListDDL"></select>
+        <p>
+            Please Choose an application first.
+            After that you can choose a web page and an environment.
+            Once web page and environments are selected, a chart will be loaded with the default cpi slow multiplier and
+            network throttles throughput.
+        </p>
+        <div class="TopMenu">
+            <div class="cockpitDropdownlistContainer">
+                <label class="cockpitDropdownlistLabel" for="webAppListDDL">Web App:</label>
+                <select class="cockpitDropdownlist" id="webAppListDDL"></select>
+            </div>
+            <div class="cockpitDropdownlistContainer">
+                <label class="cockpitDropdownlistLabel" for="webPageListDDL">Web Page:</label>
+                <select class="cockpitDropdownlist" id="webPageListDDL"></select>
+            </div>
+            <div class="cockpitDropdownlistContainer">
+                <label class="cockpitDropdownlistLabel" for="envListDDL">Environment:</label>
+                <select class="cockpitDropdownlist" id="envListDDL"></select>
+            </div>
         </div>
         <div class="cockpitDropdownlistContainer">
             <label class="cockpitDropdownlistLabel" for="cpuOptionsDDL">Select CPU Slow Down Multiplier:</label>

@@ -2,11 +2,10 @@
   "name": "client-for-website-performance-analysis-lighthouse",
   "version": "1.0.0",
   "description": "## Installation of NPM Package - Install the package globally ```` shell npm i -g website-performance-analysis-lighthouse-draft  npm i -g uuid ````",
-  "main": "index.mjs",
+  "main": "runner.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.mjs",
-    "lighthouse": "git fetch --all && git checkout -b docs origin/docs && cd docs && npm install --registry=https://registry.npmjs.org && node index.mjs"
+    "start": "node runner.mjs"
   },
   "repository": {
     "type": "git",
