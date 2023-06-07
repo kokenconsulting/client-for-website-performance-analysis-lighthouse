@@ -14,6 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "website-performance-analysis-lighthouse-draft": "^0.0.5"
+    "website-performance-analysis-lighthouse-draft": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5"
   }
 }

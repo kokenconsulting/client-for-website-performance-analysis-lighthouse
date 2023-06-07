@@ -1,1 +1,1 @@
-{"webPage":null,"webApplication":{"id":"DCC_CS","name":"DCC CS","version":"2.5.4","gitRepoUrl":"","gitBranchName":"master"},"webPageList":["DCC_CS_LANDING","DCC_CS_PROFILE"]}
+{"webPage":{"url":"https://www.fedex.com/en-gb/customer-support.html","id":"DCC_CS_LANDING","displayName":"DCC CS Landing Page","environment":"LP","description":"DCC CS APP LANDING PAGE"},"webApplication":{"id":"DCC_CS","name":"DCC CS","version":"2.5.4","environment":"DCC Customer Service","gitRepoUrl":"","gitBranchName":"master"},"webPageList":["DCC_CS_LANDING","DCC_CS_PROFILE"]}

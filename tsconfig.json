@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ES6", // or whichever version you prefer
+    "module": "ES6",
+    "outDir": "dist",
+    "strict": true,
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
